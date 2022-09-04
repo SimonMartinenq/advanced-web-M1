@@ -144,7 +144,7 @@ function AverageContributorName(array){
       average += filtered[i].length
     }
     average = average / filtered.length
-    console.log("The average is : ", average)
+    console.log("The average length of contributors’ name: ", average)
     return average
 }
 
@@ -188,19 +188,34 @@ function MostActiveContributorByNumberOfProject(array, top){
   return tabMostConstributors
 }
 
-
-
 function sortMap(map) {
 	return new Map([...map.entries()].sort((a,b) => b[1] - a[1]));
 }
 
+function groupBy(list, keyGetter) {
+  const map = new Map();
+  list.forEach((item) => {
+       const key = keyGetter(item);
+       const collection = map.get(key);
+       if (!collection) {
+           map.set(key, [item]);
+       } else {
+           collection.push(item);
+       }
+  });
+  return map;
+}
+
 function MostContributedProjet(array){ 
-  const SortedArray = sortMap(array
-		.map(contributor => contributor.projectName)
-		.reduce((acc,e) => acc.set(e, (acc.get(e) || 0) + 1), new Map())
-	)
-  const result = Array.from(SortedArray).slice(0,10).map(contrib => contrib[0])
-  console.log(result)
+  console.log(array)
+  //group by project name
+  const grouped = groupBy(array, pjt => pjt.projectName);
+  //sort by number of contributors
+  const sorted = [...grouped.entries()].sort((a, b) => b[1].length - a[1].length)
+  //select the 10 first
+  const first10 = sorted.slice(0,10)
+  //keep only names
+  const result = first10.map(elem => elem[0])
   return result
 }
 

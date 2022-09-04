@@ -128,54 +128,32 @@ function firstProjectNameInAlphaOrder(array){
     return tabMostConstributors
   }
 
-  function sortMap(map) {
-    return new Map([...map.entries()].sort((a,b) => b[1] - a[1]));
+  
+  function groupBy(list, keyGetter) {
+    const map = new Map();
+    list.forEach((item) => {
+         const key = keyGetter(item);
+         const collection = map.get(key);
+         if (!collection) {
+             map.set(key, [item]);
+         } else {
+             collection.push(item);
+         }
+    });
+    return map;
   }
   
   function MostContributedProjet(array){ 
-    const SortedArray = sortMap(array
-      .map(contributor => contributor.projectName)
-      .reduce((acc,e) => acc.set(e, (acc.get(e) || 0) + 1), new Map())
-    )
-    const result = Array.from(SortedArray).slice(0,10).map(contrib => contrib[0])
-    console.log(result)
+    //group by project name
+    const grouped = groupBy(array, pjt => pjt.projectName);
+    //sort by number of contributors
+    const sorted = [...grouped.entries()].sort((a, b) => b[1].length - a[1].length)
+    //select the 10 first
+    const first10 = sorted.slice(0,10)
+    //keep only names
+    const result = first10.map(elem => elem[0])
     return result
   }
-
-/*
-  function MostContributedProjet(array){
-    //must have unique projects
-    console.log(array.slice(0,10))
-    let tab = []
-    array.forEach((elem)=>{
-        tab.push(Object.assign({},elem))
-    })
-    const mostContributedProjects = tab.reduce((acc, value) => {
-    // Group initialization
-    if (!acc[value.projectName]) {
-        acc[value.projectName] = [];
-    }
-    // Grouping
-    acc[value.projectName].push(value);
-    return acc;
-    });
-    //transformation tableau plus simple
-    let tabmostContributedProjects = Object.entries(mostContributedProjects)
-    tabmostContributedProjects.sort(function (a, b) {
-    if (a[1]!== null && b[1]!== null && a[1].length > b[1].length) {
-        return -1;
-    } else {
-        return 1;
-    }
-    });
-    tabmostContributedProjects = tabmostContributedProjects.slice(0,10)
-    let result = []
-    tabmostContributedProjects.forEach((elem)=>{
-        result.push(elem[0])
-    })
-    return result
-}
-*/
 
   function copyByRealName (array){
     const sortByRealName = []

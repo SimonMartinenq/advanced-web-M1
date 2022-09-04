@@ -128,8 +128,21 @@ function firstProjectNameInAlphaOrder(array){
     return tabMostConstributors
   }
 
+  function sortMap(map) {
+    return new Map([...map.entries()].sort((a,b) => b[1] - a[1]));
+  }
+  
+  function MostContributedProjet(array){ 
+    const SortedArray = sortMap(array
+      .map(contributor => contributor.projectName)
+      .reduce((acc,e) => acc.set(e, (acc.get(e) || 0) + 1), new Map())
+    )
+    const result = Array.from(SortedArray).slice(0,10).map(contrib => contrib[0])
+    console.log(result)
+    return result
+  }
+
 /*
-*/
   function MostContributedProjet(array){
     //must have unique projects
     console.log(array.slice(0,10))
@@ -162,6 +175,7 @@ function firstProjectNameInAlphaOrder(array){
     })
     return result
 }
+*/
 
   function copyByRealName (array){
     const sortByRealName = []

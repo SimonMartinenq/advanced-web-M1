@@ -42,7 +42,7 @@ export function pullAndAnalyzeCsv(){
             firstProjectNameInAlphaOrder : firstProjectNameInAlphaOrder(tableau),
             numberOfUniqContributors : numberOfUniqContributors(tableau),
             averageContributorNameLength : averageContributorNameLength(tableau),
-            mostActiveContributorName : MostActiveContributorByNumberOfProject(tableau,1),
+            mostActiveContributorName : MostActiveContributorByNumberOfProject(tableau),
             top10MostConstributedProjects : MostContributedProjet(tableau),
         }
     })
@@ -92,42 +92,17 @@ function firstProjectNameInAlphaOrder(array){
   //5.4 The most active contributor’s name (by number of projects)  
   //5.5 TOP 10 of the most contributed projects.
   
-  function MostActiveContributorByNumberOfProject(array, top){
-    //Must have unique projects   
-    let tab = []
-    array.forEach((elem)=>{
-        tab.push(Object.assign({},elem))
-    })
-    //console.log(array.slice(0,2))   
-    const contributionByContributors = tab.reduce((acc, value) => {        
-    // Group initialization        
-    if (!acc[value.realName]) {            
-      acc[value.realName] = []       
-    }        
-    // Grouping        
-    acc[value.realName].push(value)        
-    return acc;        
-    })      
-    // Transformation tableau plus simple     
-    const tabContributionByContributors = Object.entries(contributionByContributors)             
-    tabContributionByContributors.sort(function (a, b) {        
-      if (a[1]!== null && b[1]!== null && a[1].length > b[1].length) {            
-        return -1   
-      } else {            
-        return 1        
-      }        
-    }); 
-    let tabMostConstributors = []
-    for (let i=0 ; i< top ; i++){
-        tabMostConstributors.push(tabContributionByContributors[i][0])
-    } 
-    if (top===1){
-        return tabMostConstributors[0]
-    }
-    
-    return tabMostConstributors
+  function MostActiveContributorByNumberOfProject(array){
+    //group by project name
+    const grouped = groupBy(array, pjt => pjt.realName);
+    //sort by number of contributors
+    const sorted = [...grouped.entries()].sort((a, b) => b[1].length - a[1].length)
+    //select the first
+    const first = sorted.slice(0,1)
+    //keep only names
+    const result = first.map(elem => elem[0])
+    return result [0]
   }
-
   
   function groupBy(list, keyGetter) {
     const map = new Map();

@@ -25,6 +25,6 @@ console.log("Exercise 4 : Basic CSV parsing into literal objects")
 console.log("4.1 : Imperative-style programming")
 console.log("4.2 : Functional-style programming")
 
-console.log("Exercice 5.1 : The first project’s name in ascending alphabetic order.")
+console.log("Exercise 5 : Computes stats about contributions")
 pullAndAnalyzeCsv()
 

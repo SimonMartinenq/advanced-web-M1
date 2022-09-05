@@ -8,7 +8,7 @@ you can use the commande line : npx http-server -a 127.0.0.1.
 Then you can clink on the link, go on your browser, inspect the page
 and go into the console to see the js results.
 
-To check our function by using the specs, 
+For testing our functions by using the specs, 
 you can use the commmand line : npx mocha --timeout=8000 specs/ex4-ex5.spec.js
 If you want to test all the specs you just need to change the name of the file
 Example for the ex1 : npx mocha --timeout=8000 specs/ex1.spec.js

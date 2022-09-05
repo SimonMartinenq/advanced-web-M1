@@ -1,4 +1,4 @@
-//import fetch from "../package.json/node-fetch"
+//import fetch from "node-fetch"
 
 export function parseCsvImperative (csvText) {
     let splitLignes = csvText.split("\n")
@@ -90,21 +90,6 @@ function firstProjectNameInAlphaOrder(array){
   }
   
   //5.4 The most active contributor’s name (by number of projects)  
-  //5.5 TOP 10 of the most contributed projects.
-  
-  function MostActiveContributorByNumberOfProject(array){
-    //group by project name
-    const grouped = groupBy(array, pjt => pjt.realName);
-    //sort by number of contributors
-    const sorted = [...grouped.entries()].sort((a, b) => b[1].length - a[1].length)
-    //select the first
-    const first = sorted.slice(0,1)
-    //keep only names
-    const result = first.map(elem => elem[0])
-    console.log("The most active contributor’s name :",result[0])
-    return result [0]
-  }
-  
   function groupBy(list, keyGetter) {
     const map = new Map();
     list.forEach((item) => {
@@ -119,6 +104,20 @@ function firstProjectNameInAlphaOrder(array){
     return map;
   }
   
+  function MostActiveContributorByNumberOfProject(array){
+    //group by project name
+    const grouped = groupBy(array, pjt => pjt.realName);
+    //sort by number of contributors
+    const sorted = [...grouped.entries()].sort((a, b) => b[1].length - a[1].length)
+    //select the first
+    const first = sorted.slice(0,1)
+    //keep only names
+    const result = first.map(elem => elem[0])[0]
+    console.log("The most active contributor’s name :",result)
+    return result
+  }
+
+  //5.5 TOP 10 of the most contributed projects.
   function MostContributedProjet(array){ 
     //group by project name
     const grouped = groupBy(array, pjt => pjt.projectName);

@@ -1,5 +1,5 @@
 # advanced-web-M1
-This is a repository for TP1 in a advanced web in M1 at EFREI
+This is a repository for TP1 in a advanced web in M1 at EFREI available at https://github.com/SimonMartinenq/advanced-web-M1.git
 
 This TP1 have been realised by : Astryd CASIMIR and Simon MARTINENQ
 

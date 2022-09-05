@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+//import fetch from "node-fetch"
 
 export function parseCsvImperative (csvText) {
     let splitLignes = csvText.split("\n")
@@ -32,7 +32,7 @@ export  function parseCsvFunctional (csvText) {
 }
 
 
-export function pullAndAnalyzeCsv(){
+export async function  pullAndAnalyzeCsv(){
     return fetch('https://thomas-veillard.fr/wp-content/uploads/2021/07/apache-contributors-projects.csv')
     .then(res => res.text())
     .then(parseCsvFunctional)
@@ -42,7 +42,7 @@ export function pullAndAnalyzeCsv(){
             firstProjectNameInAlphaOrder : firstProjectNameInAlphaOrder(tableau),
             numberOfUniqContributors : numberOfUniqContributors(tableau),
             averageContributorNameLength : averageContributorNameLength(tableau),
-            mostActiveContributorName : MostActiveContributorByNumberOfProject(tableau,1),
+            mostActiveContributorName : MostActiveContributorByNumberOfProject(tableau),
             top10MostConstributedProjects : MostContributedProjet(tableau),
         }
     })
@@ -85,83 +85,51 @@ function firstProjectNameInAlphaOrder(array){
       average += filtered[i].length
     }
     average = average / filtered.length
-    console.log("The average is : ", average)
+    console.log("The average length of contributors’ name : ", average)
     return average
   }
   
   //5.4 The most active contributor’s name (by number of projects)  
-  //5.5 TOP 10 of the most contributed projects.
+  function groupBy(list, keyGetter) {
+    const map = new Map();
+    list.forEach((item) => {
+         const key = keyGetter(item);
+         const collection = map.get(key);
+         if (!collection) {
+             map.set(key, [item]);
+         } else {
+             collection.push(item);
+         }
+    });
+    return map;
+  }
   
-  function MostActiveContributorByNumberOfProject(array, top){
-    //Must have unique projects   
-    let tab = []
-    array.forEach((elem)=>{
-        tab.push(Object.assign({},elem))
-    })
-    //console.log(array.slice(0,2))   
-    const contributionByContributors = tab.reduce((acc, value) => {        
-    // Group initialization        
-    if (!acc[value.realName]) {            
-      acc[value.realName] = []       
-    }        
-    // Grouping        
-    acc[value.realName].push(value)        
-    return acc;        
-    })      
-    // Transformation tableau plus simple     
-    const tabContributionByContributors = Object.entries(contributionByContributors)             
-    tabContributionByContributors.sort(function (a, b) {        
-      if (a[1]!== null && b[1]!== null && a[1].length > b[1].length) {            
-        return -1   
-      } else {            
-        return 1        
-      }        
-    }); 
-    let tabMostConstributors = []
-    for (let i=0 ; i< top ; i++){
-        tabMostConstributors.push(tabContributionByContributors[i][0])
-    } 
-    if (top===1){
-        return tabMostConstributors[0]
-    }
-    
-    return tabMostConstributors
+  function MostActiveContributorByNumberOfProject(array){
+    //group by project name
+    const grouped = groupBy(array, pjt => pjt.realName);
+    //sort by number of contributors
+    const sorted = [...grouped.entries()].sort((a, b) => b[1].length - a[1].length)
+    //select the first
+    const first = sorted.slice(0,1)
+    //keep only names
+    const result = first.map(elem => elem[0])[0]
+    console.log("The most active contributor’s name :",result)
+    return result
   }
 
-/*
-*/
-  function MostContributedProjet(array){
-    //must have unique projects
-    console.log(array.slice(0,10))
-    let tab = []
-    array.forEach((elem)=>{
-        tab.push(Object.assign({},elem))
-    })
-    const mostContributedProjects = tab.reduce((acc, value) => {
-    // Group initialization
-    if (!acc[value.projectName]) {
-        acc[value.projectName] = [];
-    }
-    // Grouping
-    acc[value.projectName].push(value);
-    return acc;
-    });
-    //transformation tableau plus simple
-    let tabmostContributedProjects = Object.entries(mostContributedProjects)
-    tabmostContributedProjects.sort(function (a, b) {
-    if (a[1]!== null && b[1]!== null && a[1].length > b[1].length) {
-        return -1;
-    } else {
-        return 1;
-    }
-    });
-    tabmostContributedProjects = tabmostContributedProjects.slice(0,10)
-    let result = []
-    tabmostContributedProjects.forEach((elem)=>{
-        result.push(elem[0])
-    })
+  //5.5 TOP 10 of the most contributed projects.
+  function MostContributedProjet(array){ 
+    //group by project name
+    const grouped = groupBy(array, pjt => pjt.projectName);
+    //sort by number of contributors
+    const sorted = [...grouped.entries()].sort((a, b) => b[1].length - a[1].length)
+    //select the 10 first
+    const first10 = sorted.slice(0,10)
+    //keep only names
+    const result = first10.map(elem => elem[0])
+    console.log("TOP 10 of the most contributed projects : ",result)
     return result
-}
+  }
 
   function copyByRealName (array){
     const sortByRealName = []

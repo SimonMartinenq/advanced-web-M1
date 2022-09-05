@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Using non-bundled ES6 modules</title>
+    <script type="module" src="src/index.js"></script>
+  </head>
+
+  <body>
+    <p>This HTML file directly loads JavaScript code from the 'src' folder.</p>
+
+    <ul>
+      <li>The 'src' folder contains non-bundled and non-transpiled ES6 modules.</li>
+      <li>ES-modules are files able to import or export references (variables, functions, classes...). Before ES-modules exist, splitting your codebase in multiple files was a difficult job.</li>
+      <li>ES-modules are only supported by modern browsers (<a href="https://caniuse.com/?search=modules">93.68%</a> of users covered) at the time of writing.</li>
+      <li>The `type="module"` attribute is used on `script` tag requiring `src/main.js`. This only works when served from a HTTP server.</li>
+      <li>Please refer to this post to <a href="https://thomas-veillard.fr/front-end-web-development/languages/8-fast-tour-of-javascript-setup/">setup a local server and run the code</a></li>
+    </ul>
+
+    <p id="js-init-feedback" style="color: red">JS has not been loaded</p>
+
+    <hr/>
+
+    <select id="js-select-ticker" style="width: 100%; margin-bottom: 1em">
+      <option disabled selected>Select a ticker</option>
+      <option value="AAPL">AAPL - Apple</option>
+      <option value="FB">FB - Facebook</option>
+      <option value="GOOG">GOOG - Google</option>
+      <option value="MSFT">MSFT - Microsoft</option>
+    </select>
+
+    <div id="js-output-container"></div>
+  </body>
+</html>

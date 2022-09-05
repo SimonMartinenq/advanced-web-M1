@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Using webpack's bundle</title>
+    <script async src="dist/index.js"></script>
+  </head>
+
+  <body>
+    <p>This HTML file only relies on bundled files from the `dist` folder (emitted by webpack). Depending on the advancement of your assets pipeline, it may even run on older browsers such as IE 11 despite the sources use recent syntax and features.</p>
+
+    <p id="js-init-feedback" style="color: red">JS has not been loaded</p>
+
+    <hr/>
+
+    <select id="js-select-ticker" style="width: 100%; margin-bottom: 1em">
+      <option disabled selected>Select a ticker</option>
+      <option value="AAPL">AAPL - Apple</option>
+      <option value="FB">FB - Facebook</option>
+      <option value="GOOG">GOOG - Google</option>
+      <option value="MSFT">MSFT - Microsoft</option>
+    </select>
+
+    <div id="js-output-container"></div>
+  </body>
+</html>

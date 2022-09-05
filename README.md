@@ -9,7 +9,8 @@ Then you can clink on the link, go on your browser, inspect the page
 and go into the console to see the js results.
 
 For testing our functions by using the specs, 
-you can use the commmand line : npx mocha --timeout=8000 specs/ex4-ex5.spec.js
+you need toggle line //import fetch from "node-fetch" in ex4-ex5.js
+and you can use the commmand line : npx mocha --timeout=8000 specs/ex4-ex5.spec.js
 If you want to test all the specs you just need to change the name of the file
 Example for the ex1 : npx mocha --timeout=8000 specs/ex1.spec.js
 

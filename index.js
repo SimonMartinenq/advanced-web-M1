@@ -3,9 +3,7 @@
 import {sum} from './src/ex1.js'
 import {filter} from './src/ex2.js'
 import {map} from './src/ex3.js'
-//import { parseCsvImperative } from './src/ex4-ex5.js'
-//import { parseCsvFunctional } from './src/ex4-ex5.js'
-//import { pullAndAnalyzeCsv } from './src/ex4-ex5.js'
+import { pullAndAnalyzeCsv } from './src/ex4-ex5.js'
 
 console.log("Exercise 1. Implement sum(…terms)")
 console.log(sum(1)) // prints 1
@@ -22,3 +20,11 @@ console.log("Excercise 3. Implement map(array, transform)")
 const doubled = map(array, item => item * 2) // [2, 4, 6, 8, 10]
 console.log(array)
 console.log(doubled)
+
+console.log("Exercise 4 : Basic CSV parsing into literal objects")
+console.log("4.1 : Imperative-style programming")
+console.log("4.2 : Functional-style programming")
+
+console.log("Exercice 5.1 : The first project’s name in ascending alphabetic order.")
+pullAndAnalyzeCsv()
+

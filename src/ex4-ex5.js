@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+//import fetch from "../package.json/node-fetch"
 
 export function parseCsvImperative (csvText) {
     let splitLignes = csvText.split("\n")
@@ -32,7 +32,7 @@ export  function parseCsvFunctional (csvText) {
 }
 
 
-export function pullAndAnalyzeCsv(){
+export async function  pullAndAnalyzeCsv(){
     return fetch('https://thomas-veillard.fr/wp-content/uploads/2021/07/apache-contributors-projects.csv')
     .then(res => res.text())
     .then(parseCsvFunctional)
@@ -85,7 +85,7 @@ function firstProjectNameInAlphaOrder(array){
       average += filtered[i].length
     }
     average = average / filtered.length
-    console.log("The average is : ", average)
+    console.log("The average length of contributors’ name : ", average)
     return average
   }
   
@@ -101,6 +101,7 @@ function firstProjectNameInAlphaOrder(array){
     const first = sorted.slice(0,1)
     //keep only names
     const result = first.map(elem => elem[0])
+    console.log("The most active contributor’s name :",result[0])
     return result [0]
   }
   
@@ -127,6 +128,7 @@ function firstProjectNameInAlphaOrder(array){
     const first10 = sorted.slice(0,10)
     //keep only names
     const result = first10.map(elem => elem[0])
+    console.log("TOP 10 of the most contributed projects : ",result)
     return result
   }
 

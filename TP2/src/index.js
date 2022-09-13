@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'
 import { apiGetRateHistory } from './api.js'
 import { renderRates } from './table.js'
 

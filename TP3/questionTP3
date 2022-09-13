@@ -36,3 +36,7 @@ Rules in ESLint are grouped by type to help you understand their purpose :
 - Layout & Formatting
 - Deprecated
 - Removed
+
+
+Question 5: What is the difference between scoped and non-scoped CSS?
+

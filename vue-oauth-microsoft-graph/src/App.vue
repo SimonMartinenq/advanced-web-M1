@@ -1,6 +1,12 @@
+<!-- template of file src/App.vue -->
 <template>
-  <HomePage msg="Welcome to Your Vue.js App"/>
+  <div>
+    <base-header />
+    <home-page />
+    <base-footer />
+  </div>
 </template>
+<!-- do not remove the <script /> markup -->
 
 <script>
 import HomePage from './pages/HomePage.vue'

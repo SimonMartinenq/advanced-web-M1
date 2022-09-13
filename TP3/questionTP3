@@ -1,0 +1,38 @@
+QUESTION 1 : That is the main difference between local installation and global installation of packages with npm? What kind of packages do you generally install locally? What kind is generally installed globally?
+
+The local installation is for one projet of the directory and the package will be in the node_modules. 
+So it will be not accessible by everybody. 
+Avantage : all your applications can run on a different version of each package. 
+It allows to avoid incompatibility issues in a project if it requires an anterior version of the package than another project.
+Whereas, the global installation will install the package into the C root so many projects can have access to the package and use it.
+Kind of packages : packages how provide an executable command that you can use on the shell a,d reuse accross projects link nmp, vue-cli, React-native-cli, nodemon...
+
+
+QUESTION 2 : Webpack is internally used by the Vue CLI. Why is it required to deal with both multiple JavaScript files and special extensions like .vue?
+
+Vue components are logical entities of code that contain well defined functionality and typically include a view template plus a script to define the interaction that happens in the component.
+Code-wise, they are typically located in *.vue files, which combine JavaScript code with an HTML template. These *.vue files can then be compiled to pure *.js files using Webpack.
+Webpack is a module bundler that takes your development assets (like Vue components and plain Javascript files) and combines them into so called bundles. This is different from simply concatenating and minifying JavaScript files. Simply put, with webpack bundles only the modules required on the current page are loaded.
+It allows to have a better organizational structure of your files.
+
+
+Question 3: What is the role of babel and how browserslist may configure its output?
+
+Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments. Here are the main things Babel can do for you:
+Transform syntax
+Polyfill features that are missing in your target environment (through a third-party polyfill such as core-js)
+Source code transformations (codemods)
+In the JavaScript world, there is a wonderful library called browserslist. It's a pretty simple idea: browserslist allows you to describe which browsers your site needs to support, in a bunch of useful ways. Then, any tool that needs this information can read it from a central spot.
+Let's use a simple example: > .05%:
+This is actually a pretty unrealistic setting. This says: I want to support all browsers that have at least .05% of the global browser usage. So this will include some really old browsers that, maybe only .06% of the world uses!
+
+
+Question 4: What is eslint and which set of rules are currently applied? The eslint configuration may be defined in a eslint.config.js or in package.json depending on the setup.
+
+ESLint statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
+Rules in ESLint are grouped by type to help you understand their purpose : 
+- Possible Problems
+- Suggestions
+- Layout & Formatting
+- Deprecated
+- Removed

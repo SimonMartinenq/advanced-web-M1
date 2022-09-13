@@ -1,6 +1,8 @@
 <template>
-    <img src="../assets/hamster_minion.jpg">
-  <p>Welcome to Astryd VUE !</p>
+    <div>
+      <img src="../assets/hamster_minion.jpg">
+      <p>Welcome to Astryd VUE !</p>
+    </div>
 </template>
 
 <script>
@@ -10,5 +12,5 @@ export default {
 </script>
 
 <style scoped>
-
+  
 </style>

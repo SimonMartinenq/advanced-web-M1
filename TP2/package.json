@@ -1,0 +1,30 @@
+{
+  "name": "basic-rate-graph",
+  "version": "0.0.1",
+  "description": "Basic app rendering stock rates (both as table and graph), created for teaching purpose.",
+  "main": "src/index.js",
+  "scripts": {
+    "serve-es6-sources": "http-server -a 127.0.0.1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas VEILLARD",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@types/chart.js": "^2.9.34",
+    "babel-loader": "^8.2.2",
+    "http-server": "^13.0.0",
+    "standard": "^16.0.3",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "chart.js": "2.9.3",
+    "core-js": "^3.16.2",
+    "regenerator-runtime": "^0.13.9",
+    "whatwg-fetch": "^3.6.2"
+  }
+}

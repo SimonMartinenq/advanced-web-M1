@@ -8,7 +8,8 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "check-style": "standard"
+    "check-style": "standard",
+    "docs": "./node_modules/jsdoc/jsdoc.js -c ./.jsdoc.conf.json"
   },
   "author": "Thomas VEILLARD",
   "license": "ISC",

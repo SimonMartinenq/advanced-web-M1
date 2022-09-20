@@ -1,14 +1,12 @@
 <template>
-    <div class="nav_bar">
+    <header class="nav_bar">
         <div class="button_nav_bar">
-          <a href="./"><font-awesome-icon icon="fa-solid fa-house" /></a>
-          <p>Home</p>
+          <a href="./"><p><font-awesome-icon icon="fa-solid fa-house" /> HOME</p></a>
         </div>
         <div class="button_nav_bar">
-          <font-awesome-icon icon="fa-solid fa-user" />
-          <p>User not login</p>
+          <a href="./"><p><font-awesome-icon icon="fa-solid fa-user" /> User not login</p></a>
         </div>
-    </div>
+    </header>
 </template>
 
 <script>
@@ -18,14 +16,25 @@ export default {
 </script>
 
 <style scoped>
-  .nav_bar{
-    display: flex;
+  header{
+    position : fixed;
+    top:0;
+    right: 0; 
+    left: 0;
     background-color:darkslategrey;
-    color: brown;
-    font-weight: bold;
-    align-items: center;
+    color: lavender;
+    display: flex;
+    padding-left: 1em;
   }
   .button_nav_bar{
-    display: flex;
+    font-size: larger;
+    padding : 0.5em;
+  }
+  .button_nav_bar a{
+    color : lavender;
+    text-decoration: none;
+  }
+  .button_nav_bar p:hover{
+    color : rgba(238, 130, 238, 0.689);
   }
 </style>

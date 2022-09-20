@@ -1,10 +1,19 @@
 <template>
-  <button>{{ title }}</button>
+  <button :disabled="disabled">{{ title }}</button>
 </template>
 
 <script>
 export default {
-  props: ['title']
+  props: {
+        title: {
+            type: String, 
+            default: ""
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        }
+    },
 }
 </script>
 
@@ -23,5 +32,11 @@ export default {
   button:hover{
     transition-duration: 1s;
     background: goldenrod;
+  }
+  button:disabled{
+    background :lightgray;
+    color : white;
+    text-shadow: 1px 1px 1px grey ;
+    border-color : darkgrey;
   }
 </style>

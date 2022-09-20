@@ -1,9 +1,9 @@
 <template>
     <div>
       <img src="../assets/hamster_minion.jpg">
-      <p>Welcome to Astryd VUE !</p>
+      <p>Welcome to Astryd and Simon VUE !</p>
       <BaseButton title= "Hello I am fun" />
-      <BaseButton title= "Hello I am disable"  :disabled="isPending"/>
+      <BaseButton title= "Hello I am disable" :disabled="true" />
     </div>
 </template>
 

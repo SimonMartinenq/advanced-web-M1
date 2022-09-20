@@ -1,24 +1,22 @@
 <!-- template of file src/App.vue -->
 <template>
   <div>
-    <base-header/>
+    <base-layout>
     <home-page />
-    <base-footer/>
+    </base-layout>
   </div>
 </template>
 <!-- do not remove the <script /> markup -->
 
 <script>
 import HomePage from './pages/HomePage.vue'
-import BaseHeader from './components/BaseHeader.vue'
-import BaseFooter from './components/BaseFooter.vue'
+import BaseLayout from './components/BaseLayout.vue'
 
 export default {
   name: 'App',
   components: {
     HomePage,
-    BaseHeader,
-    BaseFooter,
+    BaseLayout,
   }
 }
 </script>

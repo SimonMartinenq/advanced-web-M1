@@ -1,7 +1,7 @@
 <template>
     <header class="nav_bar">
         <div class="button_nav_bar">
-          <a href="./"><p><font-awesome-icon icon="fa-solid fa-house" /> HOME</p></a>
+          <a href="./"><p><font-awesome-icon icon="fa-solid fa-house" /> Home</p></a>
         </div>
         <div class="button_nav_bar">
           <a href="./"><p><font-awesome-icon icon="fa-solid fa-user" /> User not login</p></a>

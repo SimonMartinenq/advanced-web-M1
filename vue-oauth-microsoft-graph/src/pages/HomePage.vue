@@ -2,8 +2,8 @@
     <div>
       <img src="../assets/hamster_minion.jpg">
       <p>Welcome to Astryd and Simon VUE !</p>
-      <BaseButton title= "Hello I am fun" />
-      <BaseButton title= "Hello I am disable" :disabled="true" />
+      <BaseButton>BaseButton disable</BaseButton>
+      <BaseButton :disabled="true">BaseButton disabled</BaseButton>
     </div>
 </template>
 

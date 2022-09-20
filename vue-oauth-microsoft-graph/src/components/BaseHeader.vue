@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  components: {  },
   name: "BaseHeader"
 }
 </script>
@@ -24,11 +25,11 @@ export default {
     background-color:darkslategrey;
     color: lavender;
     display: flex;
-    padding-left: 1em;
+    padding: 1em;
+    justify-content: space-between;
   }
   .button_nav_bar{
     font-size: larger;
-    padding : 0.5em;
   }
   .button_nav_bar a{
     color : lavender;

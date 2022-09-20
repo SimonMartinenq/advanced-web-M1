@@ -1,14 +1,10 @@
 <template>
-  <button :disabled="disabled">{{ title }}</button>
+  <button :disabled="disabled"><slot/></button>
 </template>
 
 <script>
 export default {
   props: {
-        title: {
-            type: String, 
-            default: ""
-        },
         disabled: {
             type: Boolean,
             default: false
@@ -28,6 +24,7 @@ export default {
     text-align: center;
     padding : 1em;
     margin : 1em;
+    cursor: pointer;
   }
   button:hover{
     transition-duration: 1s;
@@ -38,5 +35,11 @@ export default {
     color : white;
     text-shadow: 1px 1px 1px grey ;
     border-color : darkgrey;
+  }
+  button:disabled:hover{
+    cursor:not-allowed;
+  }
+  button:focus{
+    color: brown;
   }
 </style>

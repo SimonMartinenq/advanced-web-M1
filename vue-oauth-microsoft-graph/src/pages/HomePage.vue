@@ -2,11 +2,16 @@
     <div>
       <img src="../assets/hamster_minion.jpg">
       <p>Welcome to Astryd VUE !</p>
+      <BaseButton title= "Hello I am fun" />
+      <BaseButton title= "Hello I am disable"  :disabled="isPending"/>
     </div>
 </template>
 
 <script>
+import BaseButton from '@/components/BaseButton.vue'
+
 export default {
+  components: { BaseButton },
   name: "HomePage"
 }
 </script>

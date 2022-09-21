@@ -18,24 +18,24 @@ export default {
 
 <style scoped>
   header{
-    position : fixed;
+    position : -webkit-sticky;
     top:0;
     right: 0; 
     left: 0;
-    background-color:darkslategrey;
-    color: lavender;
     display: flex;
-    padding: 1em;
+    padding: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
     justify-content: space-between;
   }
   .button_nav_bar{
     font-size: larger;
   }
   .button_nav_bar a{
-    color : lavender;
+    color : white;
     text-decoration: none;
   }
   .button_nav_bar p:hover{
-    color : rgba(238, 130, 238, 0.689);
+    color : #42b983;
   }
 </style>

@@ -26,10 +26,24 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
   margin: 0;
+  
+  width: 100%;
+  height: 100%;
+}
+html{
+background: linear-gradient(rgb(19,50,118),70%, rgb(73,36,74));
+height: 120%;
+color: white;
+}
 
+body{
+  margin:0;
+  height: 100%;
+}
+
+h1{
+  font-size: 300%;
+  font-family:"Alliance1","Alliance1HeaderFallback",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
 }
 </style>

@@ -1,14 +1,21 @@
 <template>
-    <div>
+    <main>
+      <h1>Welcome to Astryd and Simon VUE !</h1>
       <img src="../assets/hamster_minion.jpg">
-      <p>Welcome to Astryd and Simon VUE !</p>
-      <BaseButton>BaseButton disable</BaseButton>
-      <BaseButton :disabled="true">BaseButton disabled</BaseButton>
-    </div>
+      <div >
+        <BaseButton>BaseButton</BaseButton><br>
+        <BaseButton color='ras'>BaseButton ras</BaseButton><br>
+        <BaseButton :disabled="true">BaseButton disabled</BaseButton><br>
+        <BaseButton color="warn">BaseButton with color props warn</BaseButton><br>
+        <BaseButton color="danger">BaseButton with color props danger</BaseButton>
+      </div>
+
+    </main>
 </template>
 
 <script>
 import BaseButton from '@/components/BaseButton.vue'
+
 
 export default {
   components: { BaseButton },
@@ -17,7 +24,10 @@ export default {
 </script>
 
 <style scoped>
-  div{
-    margin-top : 8em;
+  main{
+    text-align: center;
+
   }
+
+  
 </style>

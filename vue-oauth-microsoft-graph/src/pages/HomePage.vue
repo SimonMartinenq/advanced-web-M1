@@ -23,12 +23,18 @@ import BaseButton from '../components/BaseButton.vue'
 export default {
   components: { AsyncButton,BaseButton },
   name: "HomePage",
+  data() {
+    return {
+      count: 1
+    }
+  },
   methods:{
     wait(){
+      this.count++
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve("foo");
-        }, 2000);
+          resolve(console.log(`Wait for ${this.count} second`));
+        }, (this.count*1000)+2000);
       });
     }
   }

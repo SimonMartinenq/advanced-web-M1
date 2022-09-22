@@ -32,7 +32,7 @@ export default {
   height: 100%;
 }
 html{
-background: linear-gradient(rgb(19,50,118),70%, rgb(73,36,74));
+background: linear-gradient(rgb(211, 225, 255),70%, rgb(239, 155, 242));
 height:max-content;
 color: white;
 }

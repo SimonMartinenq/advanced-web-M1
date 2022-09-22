@@ -13,10 +13,10 @@ export default {
 
 <style scoped>
   footer{
-    position:-ms-page;
+    /* position:-ms-page;
     bottom:0;
     right: 0;
-    left: 0;
+    left: 0; */
     padding: 1%;
     margin: 1%;
     text-align: center;

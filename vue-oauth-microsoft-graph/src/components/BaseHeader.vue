@@ -1,17 +1,14 @@
 <template>
     <header class="nav_bar">
-        <div class="button_nav_bar">
-          <a href="./"><p><font-awesome-icon icon="fa-solid fa-house" /> Home</p></a>
-        </div>
-        <div class="button_nav_bar">
-          <a href="./"><p><font-awesome-icon icon="fa-solid fa-user" /> User not login</p></a>
-        </div>
+        <base-button><font-awesome-icon icon="fa-solid fa-house" /> Home</base-button>
+        <base-button><font-awesome-icon icon="fa-solid fa-user" /> User not login</base-button>
     </header>
 </template>
 
 <script>
+import BaseButton from './BaseButton.vue'
 export default {
-  components: {  },
+  components: {BaseButton  },
   name: "BaseHeader"
 }
 </script>
@@ -28,14 +25,5 @@ export default {
     padding-right: 5%;
     justify-content: space-between;
   }
-  .button_nav_bar{
-    font-size: larger;
-  }
-  .button_nav_bar a{
-    color : white;
-    text-decoration: none;
-  }
-  .button_nav_bar p:hover{
-    color : #42b983;
-  }
+  
 </style>

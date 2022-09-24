@@ -58,4 +58,7 @@ We pass the handleClick function as child parameters via @click.stop.prevent
 Using finaly() ensures, in this case, that "isPending" will return to false no matter what (contrary to .then()). If there is a event before the finaly (an error or a success) it will not influence the fact that we have to stop this button from spinning.
 
 Question 8: Which bug is introduced if inheritAttrs: false is missing or set to true in AsyncButton? Why?
+
 The child of AsyncButton is itself a component and attribute bindings that are not recognized as props will "fallthrough" and be applied to the root element of the child component as normal HTML attributes.
+
+So if we disable attribute inheritance only the function specified for the onclick (wait()) event will be received by async button and passed to base-button. But if we do not disable inheritance, then base-button will receive two attributes which will generate two calls to time the wait() function and therefore an extended time of +2 seconds instead of +1 second

@@ -19,7 +19,7 @@ import BaseButton from './BaseButton.vue'
 export default {
   name: 'AsyncButton',
   components: { BaseButton },
-  inheritAttrs: false,
+  inheritAttrs: true,
 
   props: {
     color: {
@@ -38,7 +38,7 @@ export default {
     handleClick () {
       const originalOnClick = /** @type {() => Promise<void>} */ (this.$attrs.onClick)
       this.isPending = true
-      originalOnClick().finally(() => { this.isPending = false })
+      originalOnClick().finally(() => {this.isPending = false})
     }
   }
 }

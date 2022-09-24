@@ -34,7 +34,7 @@ export default {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve(console.log(`Wait for ${this.count} second`));
-        }, (this.count*1000)+2000);
+        }, (this.count*1000));
       });
     }
   }

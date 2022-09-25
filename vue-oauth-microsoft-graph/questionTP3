@@ -48,6 +48,7 @@ Question 6 : How behaves non-prop attributes passed down to a component, when it
 
 When a component returns a single root node, non-prop attributes will automatically be added to the root node's attributes.
 
+
 Question 7: Analyse how works the AsyncButton. How the child component is aware of the returned Promise by the parent onClick handler? When is executed the callback passed to .finally()? Why use .finally() instead of .then()? Etc.
 
 We pass the handleClick function via @click.stop.prevent as child parameters. So the child base-button will receive the return from the parent function async-button through its attributes attrs. In addition, we specify to js the return type of originalOnClick with JSDoc.
@@ -56,6 +57,7 @@ The callback passed to .finally() is executed after the function that handles th
 
 We pass the handleClick function as child parameters via @click.stop.prevent
 Using finaly() ensures, in this case, that "isPending" will return to false no matter what (contrary to .then()). If there is a event before the finaly (an error or a success) it will not influence the fact that we have to stop this button from spinning.
+
 
 Question 8: Which bug is introduced if inheritAttrs: false is missing or set to true in AsyncButton? Why?
 

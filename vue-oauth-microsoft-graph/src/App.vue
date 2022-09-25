@@ -32,7 +32,7 @@ export default {
   height: 100%;
 }
 html{
-  background: white;
+  background: whitesmoke;
   height:max-content;
   color: #42b983;
 }
@@ -44,6 +44,8 @@ body{
 
 h1{
   font-size: 300%;
-  font-family:"Alliance1","Alliance1HeaderFallback",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
+  font-family:"Alliance1","Alliance1HeaderFallback",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  color : darkgreen;
+  text-shadow: 2px 2px 2px gray;
 }
 </style>

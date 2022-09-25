@@ -7,7 +7,7 @@
         <base-button disabled>BaseButton disabled</base-button><br>
         <base-button color="warn">BaseButton with color props warn</base-button><br>
         <base-button color="danger">BaseButton with color props danger</base-button><br>
-        <async-button @click="wait" >Disable and animated for 2 sec if clicked</async-button>
+        <async-button @click="wait" >Disable and animated for a few sec if clicked</async-button>
         
       </div>
 

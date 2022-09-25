@@ -13,19 +13,16 @@ export default {
 
 <style scoped>
   footer{
-    /* position:-ms-page;
-    bottom:0;
-    right: 0;
-    left: 0; */
     padding: 1%;
     margin: 1%;
     text-align: center;
+    color : green;
   }
   footer a{
-    color : #42b983;
     text-decoration: none;
+    color : green;
   }
   footer a:hover{
-    color : darkorchid ;
+    color : darkgrey ;
   }
 </style>

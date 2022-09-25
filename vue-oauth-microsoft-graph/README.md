@@ -1,3 +1,7 @@
+ASTRYD CASIMIR
+SIMON MARTINENQ
+SE1
+
 # vue-oauth-microsoft-graph
 
 ## Project setup

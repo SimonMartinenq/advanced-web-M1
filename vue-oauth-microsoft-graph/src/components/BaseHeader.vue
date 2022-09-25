@@ -1,40 +1,29 @@
 <template>
     <header class="nav_bar">
-        <div class="button_nav_bar">
-          <a href="./"><p><font-awesome-icon icon="fa-solid fa-house" /> Home</p></a>
-        </div>
-        <div class="button_nav_bar">
-          <a href="./"><p><font-awesome-icon icon="fa-solid fa-user" /> User not login</p></a>
-        </div>
+        <base-button><font-awesome-icon icon="fa-solid fa-house" /> Home</base-button>
+        <base-button><font-awesome-icon icon="fa-solid fa-user" /> User not login</base-button>
     </header>
 </template>
 
 <script>
+import BaseButton from './BaseButton.vue'
 export default {
+  components: {BaseButton  },
   name: "BaseHeader"
 }
 </script>
 
 <style scoped>
   header{
-    position : fixed;
+    position : -webkit-sticky;
     top:0;
     right: 0; 
     left: 0;
-    background-color:darkslategrey;
-    color: lavender;
     display: flex;
-    padding-left: 1em;
+    padding: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: space-between;
   }
-  .button_nav_bar{
-    font-size: larger;
-    padding : 0.5em;
-  }
-  .button_nav_bar a{
-    color : lavender;
-    text-decoration: none;
-  }
-  .button_nav_bar p:hover{
-    color : rgba(238, 130, 238, 0.689);
-  }
+  
 </style>

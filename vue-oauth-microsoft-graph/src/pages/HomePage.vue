@@ -1,23 +1,51 @@
 <template>
-    <div>
+    <main>
+      <h1>Welcome to Astryd and Simon VUE !</h1>
       <img src="../assets/hamster_minion.jpg">
-      <p>Welcome to Astryd and Simon VUE !</p>
-      <BaseButton title= "Hello I am fun" />
-      <BaseButton title= "Hello I am disable" :disabled="true" />
-    </div>
+      <div >
+        <base-button>BaseButton</base-button><br>
+        <base-button disabled>BaseButton disabled</base-button><br>
+        <base-button color="warn">BaseButton with color props warn</base-button><br>
+        <base-button color="danger">BaseButton with color props danger</base-button><br>
+        <async-button @click="wait" >Disable and animated for a few sec if clicked</async-button>
+        
+      </div>
+
+    </main>
 </template>
 
 <script>
-import BaseButton from '@/components/BaseButton.vue'
+import AsyncButton from '../components/AsyncButton.vue'
+import BaseButton from '../components/BaseButton.vue'
+
 
 export default {
-  components: { BaseButton },
-  name: "HomePage"
+  components: { AsyncButton,BaseButton },
+  name: "HomePage",
+  data() {
+    return {
+      count: 1
+    }
+  },
+  methods:{
+    wait(){
+      this.count++
+      alert(`Wait for ${this.count} second`)
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(alert(`You waited for ${this.count} second`));
+        }, (this.count*1000));
+      });
+    }
+  }
 }
 </script>
 
 <style scoped>
-  div{
-    margin-top : 8em;
+  main{
+    text-align: center;
+
   }
+
+  
 </style>

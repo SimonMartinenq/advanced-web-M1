@@ -47,3 +47,20 @@ For example, if I apply a blue style to a p tag nested in another element which 
 Question 6 : How behaves non-prop attributes passed down to a component, when its template has a single root element? Tips: it is well documented by vue, but you can also try it youself by passing the style attribute with a straight visual effect.
 
 When a component returns a single root node, non-prop attributes will automatically be added to the root node's attributes.
+
+
+Question 7: Analyse how works the AsyncButton. How the child component is aware of the returned Promise by the parent onClick handler? When is executed the callback passed to .finally()? Why use .finally() instead of .then()? Etc.
+
+We pass the handleClick function via @click.stop.prevent as child parameters. So the child base-button will receive the return from the parent function async-button through its attributes attrs. In addition, we specify to js the return type of originalOnClick with JSDoc.
+
+The callback passed to .finally() is executed after the function that handles the delay returns its resolved promise.
+
+We pass the handleClick function as child parameters via @click.stop.prevent
+Using finaly() ensures, in this case, that "isPending" will return to false no matter what (contrary to .then()). If there is a event before the finaly (an error or a success) it will not influence the fact that we have to stop this button from spinning.
+
+
+Question 8: Which bug is introduced if inheritAttrs: false is missing or set to true in AsyncButton? Why?
+
+The child of AsyncButton is itself a component and attribute bindings that are not recognized as props will "fallthrough" and be applied to the root element of the child component as normal HTML attributes.
+
+So if we disable attribute inheritance only the function specified for the onclick (wait()) event will be received by async button and passed to base-button. But if we do not disable inheritance, then base-button will receive two attributes which will generate two calls to time the wait() function and therefore an extended time of +2 seconds instead of +1 second

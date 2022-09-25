@@ -39,7 +39,6 @@ export default {
     handleClick () {
       const originalOnClick = /** @type {() => Promise<void>} */ (this.$attrs.onClick)
       this.isPending = true
-      //this.title = "coucou"
       originalOnClick().finally(() => {this.isPending = false})
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <button :disabled="disabled" :style="cssVars"><slot/></button>
+  <button :disabled="disabled" :style="cssVars" ><slot/></button>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
         color:{
           type: String,
           default:"primary"
-        }
+        },  
     },
     computed: {
       cssVars () {
@@ -29,8 +29,8 @@ export default {
           '--hoverBg':colorObject.hoverBg,
           '--focusBorder':colorObject.focusBorder
         }
+      }
     }
-  }
 
 }
 
@@ -56,8 +56,7 @@ export default {
   }
   button:disabled{
     background :lightgray;
-    color : white;
-    text-shadow: 1px 1px 1px grey ;
+    color:rgb(242, 242, 242);
     border-color : darkgrey;
   }
   button:disabled:hover{

@@ -1,15 +1,21 @@
 <template>
     <header class="nav_bar">
         <base-button><font-awesome-icon icon="fa-solid fa-house" /> Home</base-button>
-        <base-button><font-awesome-icon icon="fa-solid fa-user" /> User not login</base-button>
+        <signin-button><font-awesome-icon icon="fa-solid fa-user" /></signin-button>
     </header>
 </template>
 
 <script>
 import BaseButton from './BaseButton.vue'
+import SigninButton from './SigninButton.vue'
 export default {
-  components: {BaseButton  },
-  name: "BaseHeader"
+  components: {BaseButton, SigninButton },
+  name: "BaseHeader",
+  /* data (){
+    return {
+      text:" sign in"
+    }
+  } */
 }
 </script>
 

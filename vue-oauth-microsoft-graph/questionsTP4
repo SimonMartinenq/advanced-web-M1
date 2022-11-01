@@ -12,3 +12,9 @@ The problem of passing information like this between components is that from the
 
 Question 5: Build a comparison table between the various state management strategies available, especially about pro and cons. Optionally, feel free to explore other ways not covered in that tutorial.
 
+Question 7: What is the performance difference between:
+
+<a href="/conversations">Conversation</a>
+<router-link to="/conversations">Conversations</router-link>
+
+If we use router link the page will not reload but with <a> link the navigation occured through page refresh

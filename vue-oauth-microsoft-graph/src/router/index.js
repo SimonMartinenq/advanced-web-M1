@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomePage from '@/pages/HomePage.vue'
 import ConversationsPage from '@/pages/ConversationsPage.vue'
+import ConversationShowPage from '@/pages/ConversationShowPage.vue'
 import store from "@/store";
 const routes = [
   {
@@ -12,6 +13,14 @@ const routes = [
     name: "Convesations",
     path: "/conversations",
     component: ConversationsPage,
+    meta: {
+        requiresAuth: true,
+      },
+  },
+  {
+    name: "Convesation",
+    path: "/conversation/:id",
+    component: ConversationShowPage,
     meta: {
         requiresAuth: true,
       },

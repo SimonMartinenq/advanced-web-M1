@@ -1,6 +1,6 @@
 <template>
    <div> 
-    <base-header @user-changed="forward"/>
+    <base-header/>
     <slot></slot>
     <base-footer/>
     </div>
@@ -15,11 +15,6 @@ import BaseHeader from './BaseHeader.vue'
 export default {
   components: { BaseHeader, BaseFooter },
   name: "BaseLayout",
-  methods: {
-    forward(user) {
-      this.$emit('userChanged',user)
-    }
-  }
 }
 </script>
 

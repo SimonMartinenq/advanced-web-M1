@@ -1,11 +1,11 @@
 <template>
     <async-button @click="connect">
         <slot/>
-        <div v-if="user===null">
+        <div v-if="this.$store.state.user===null">
           sign in
         </div>
         <div v-else>
-          {{userProvide?.name}}
+          {{this.$store.state.user?.name}}
         </div>
     </async-button>
 </template>
@@ -16,11 +16,10 @@ import {signInAndGetUser} from '../lib/microsoftGraph'
 export default {
   name: 'SigninButton',
   components: { AsyncButton },
-  inject:['userProvide'],
   methods: {
     async connect () {
-        const user = /** @type {() => Promise<void>} */ signInAndGetUser()
-        this.$emit('userChanged',user)
+        const user = await /** @type {() => Promise<void>} */ signInAndGetUser()
+        this.$store.commit('setUser',user)
     }
   }  
 }

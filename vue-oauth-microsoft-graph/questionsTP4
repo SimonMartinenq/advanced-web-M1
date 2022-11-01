@@ -9,3 +9,6 @@ Confugartion changes depending on the environment in which our application runs,
 Question 3: While being a well-working solution, it suffers from maintainability issues. Please expose and discuss them.
 
 The problem of passing information like this between components is that from the moment you change the architecture of components, you also have to change the passage of information
+
+Question 5: Build a comparison table between the various state management strategies available, especially about pro and cons. Optionally, feel free to explore other ways not covered in that tutorial.
+

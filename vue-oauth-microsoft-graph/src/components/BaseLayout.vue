@@ -1,7 +1,7 @@
 <template>
    <div> 
     <base-header/>
-    <slot></slot>
+    <router-view></router-view>
     <base-footer/>
     </div>
 </template>

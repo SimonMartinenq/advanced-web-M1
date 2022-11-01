@@ -1,6 +1,6 @@
 <template>
     <main>
-      <h1>Welcome to Astryd and Simon VUE !</h1>
+      <h1>Welcome {{user?.name}}!</h1>
       <img src="../assets/hamster_minion.jpg">
       <div >
         <base-button>BaseButton</base-button><br>
@@ -26,6 +26,9 @@ export default {
     return {
       count: 1
     }
+  },
+  props:{
+    user:null
   },
   methods:{
     wait(){

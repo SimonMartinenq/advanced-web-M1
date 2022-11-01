@@ -1,8 +1,8 @@
 <!-- template of file src/App.vue -->
 <template>
   <div>
-    <base-layout>
-    <home-page />
+    <base-layout @user-changed="defineUser" :user="user">
+    <home-page :user="user"/>
     </base-layout>
   </div>
 </template>
@@ -17,6 +17,17 @@ export default {
   components: {
     HomePage,
     BaseLayout,
+  },
+  data(){
+    return{
+      user:null
+    }
+  },
+  methods: {
+    async defineUser (userPromise) {
+        const user = await userPromise
+        this.user = user
+    }
   }
 }
 </script>

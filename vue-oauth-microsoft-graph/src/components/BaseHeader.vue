@@ -1,7 +1,7 @@
 <template>
     <header class="nav_bar">
         <base-button><font-awesome-icon icon="fa-solid fa-house" /> Home</base-button>
-        <signin-button><font-awesome-icon icon="fa-solid fa-user" /></signin-button>
+        <signin-button @user-changed="forward" :user="user"><font-awesome-icon icon="fa-solid fa-user" /></signin-button>
     </header>
 </template>
 
@@ -11,11 +11,14 @@ import SigninButton from './SigninButton.vue'
 export default {
   components: {BaseButton, SigninButton },
   name: "BaseHeader",
-  /* data (){
-    return {
-      text:" sign in"
+  props:{
+    user:null
+  },
+  methods:{
+    forward(user){
+      this.$emit('userChanged',user)
     }
-  } */
+  }
 }
 </script>
 

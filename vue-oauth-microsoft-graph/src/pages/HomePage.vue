@@ -1,6 +1,6 @@
 <template>
     <main>
-      <h1>Welcome {{user?.name}}!</h1>
+      <h1>Welcome {{userProvide?.name}}!</h1>
       <img src="../assets/hamster_minion.jpg">
       <div >
         <base-button>BaseButton</base-button><br>
@@ -27,9 +27,7 @@ export default {
       count: 1
     }
   },
-  props:{
-    user:null
-  },
+  inject: ['userProvide'],
   methods:{
     wait(){
       this.count++

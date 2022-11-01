@@ -5,7 +5,7 @@
           sign in
         </div>
         <div v-else>
-          {{user.name}}
+          {{userProvide?.name}}
         </div>
     </async-button>
 </template>
@@ -16,9 +16,7 @@ import {signInAndGetUser} from '../lib/microsoftGraph'
 export default {
   name: 'SigninButton',
   components: { AsyncButton },
-  props:{
-    user:null
-  },
+  inject:['userProvide'],
   methods: {
     async connect () {
         const user = /** @type {() => Promise<void>} */ signInAndGetUser()

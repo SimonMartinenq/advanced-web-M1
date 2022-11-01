@@ -1,8 +1,8 @@
 <!-- template of file src/App.vue -->
 <template>
   <div>
-    <base-layout @user-changed="defineUser" :user="user">
-    <home-page :user="user"/>
+    <base-layout @user-changed="defineUser">
+    <home-page/>
     </base-layout>
   </div>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import HomePage from './pages/HomePage.vue'
 import BaseLayout from './components/BaseLayout.vue'
-
+import { computed } from 'vue'
 export default {
   name: 'App',
   components: {
@@ -23,10 +23,16 @@ export default {
       user:null
     }
   },
+  provide() {
+    return {
+      userProvide: computed(() => this.user)
+    }
+  },
   methods: {
     async defineUser (userPromise) {
         const user = await userPromise
         this.user = user
+        return user
     }
   }
 }

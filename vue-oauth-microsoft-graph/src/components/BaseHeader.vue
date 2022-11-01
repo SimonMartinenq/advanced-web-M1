@@ -1,6 +1,7 @@
 <template>
     <header class="nav_bar">
         <base-button><font-awesome-icon icon="fa-solid fa-house" /> Home</base-button>
+        <router-link v-if="this.$store.state.user!==null" to="/conversations">Go to conversations</router-link>
         <signin-button><font-awesome-icon icon="fa-solid fa-user" /></signin-button>
     </header>
 </template>

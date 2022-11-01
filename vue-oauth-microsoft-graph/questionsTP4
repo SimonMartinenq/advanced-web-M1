@@ -5,3 +5,7 @@ From a security and maintainability perspective, it’s best not to put the conf
 Question 2 : Why may you want different configurations depending on the environment? Give an example.
 
 Confugartion changes depending on the environment in which our application runs, which is why it is better to presonalize it for everyone. For example, for a local development, if you connect to a local database, the login, login password and port may change.
+
+Question 3: While being a well-working solution, it suffers from maintainability issues. Please expose and discuss them.
+
+The problem of passing information like this between components is that from the moment you change the architecture of components, you also have to change the passage of information
